@@ -13,16 +13,16 @@ account_id = os.getenv('CDK_DEFAULT_ACCOUNT')
 if region not in ['eu-west-1']:
     raise Exception(f'CDK_DEFAULT_REGION must be eu-west-1, but is: {region}')
 
-if os.getenv("ENVIRONMENT") is None:
+if os.getenv('ENVIRONMENT') is None:
     raise Exception(f'var ENVIRONMENT is not set')
 
-environment=cdk.Environment(account=account_id,region=region)
+environment = cdk.Environment(account=account_id, region=region)
 
 CdkDemoStack(
-    app, 
-    construct_id="CdkDemoStack",
-    stack_name="CdkDemoStack",
-    description="Demo stack with cdk",
+    app,
+    construct_id='CdkDemoStack',
+    stack_name='CdkDemoStack',
+    description='Demo stack with cdk',
     env=environment,
     synthesizer=cdk.DefaultStackSynthesizer(
         qualifier='demo',
